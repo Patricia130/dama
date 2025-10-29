@@ -15,17 +15,17 @@ workflows:
         script: |
           echo "🔹 Dando permissão ao gradlew e limpando projeto..."
           chmod +x gradlew
-          ./gradlew clean
+          ./gradlew clean --stacktrace --info
 
       - name: Build APK Release
         script: |
           echo "🔹 Gerando APK Release..."
-          ./gradlew assembleRelease
+          ./gradlew assembleRelease --stacktrace --info
 
       - name: Build AAB (Bundle) Release
         script: |
           echo "🔹 Gerando AAB Release..."
-          ./gradlew bundleRelease
+          ./gradlew bundleRelease --stacktrace --info
 
     artifacts:
       - app/build/outputs/**/*.apk
