@@ -19,7 +19,6 @@ Thumbs.db
 build/
 captures/
 local.properties
-.gradle/
 *.apk
 *.ap_
 *.dex
@@ -34,16 +33,11 @@ obj/
 *.jks
 
 # ============================================
-# ⚙️ GRADLE WRAPPER / CACHE
+# ⚙️ GRADLE CACHE
 # ============================================
-.gradle/
-**/build/
 **/.gradle/
+**/build/
 **/local.properties
-**/gradlew
-**/gradlew.bat
-**/gradle-wrapper.jar
-**/gradle-wrapper.properties
 
 # ============================================
 # 🧩 CODER / IDE CONFIGS
