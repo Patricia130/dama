@@ -5,24 +5,32 @@ workflows:
     environment:
       vars:
         PACKAGE_NAME: "com.tochegando.motoboy"
-        BUILD_DIR: "android"
+        BUILD_DIR: "."
       android_signing:
         - keystore: newtaxi
       java: 17
+
     scripts:
       - name: Limpar e preparar build
         script: |
-          cd android
+          echo "🔹 Dando permissão ao gradlew e limpando projeto..."
+          chmod +x gradlew
           ./gradlew clean
+
       - name: Build APK Release
         script: |
+          echo "🔹 Gerando APK Release..."
           ./gradlew assembleRelease
+
       - name: Build AAB (Bundle) Release
         script: |
+          echo "🔹 Gerando AAB Release..."
           ./gradlew bundleRelease
+
     artifacts:
-      - android/app/build/outputs/**/*.apk
-      - android/app/build/outputs/**/*.aab
+      - app/build/outputs/**/*.apk
+      - app/build/outputs/**/*.aab
+
     publishing:
       email:
         recipients:
